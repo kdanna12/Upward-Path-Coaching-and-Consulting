@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Leadership coaching, workshops, masterminds, DISC assessments, and Lunch and Learns for trades and blue-collar business owners. Upward Path Coaching, Conway SC.">
+<title>Services | Upward Path Coaching &amp; Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --navy:    #041C26;
+  --blue:    #1A79B4;
+  --orange:  #E88013;
+  --magenta: #C02276;
+  --teal:    #02B1CE;
+  --green:   #3CA050;
+  --navy2:   #0A2F42;
+  --white:   #FFFFFF;
+  --offwhite:#F0F4F8;
+  --lgray:   #E8EEF4;
+  --textmid: #3A5A70;
+  --textlt:  #7A9AB0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato',sans-serif;color:var(--navy);background:linear-gradient(180deg,#f0f4f8 0%,#e8f0f7 30%,#f5f8fb 60%,#eef2f6 100%);overflow-x:hidden;min-width:100%;}
+
+/* HERO */
+.hero{
+  min-height:100vh;background:var(--navy);
+  position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.hero-bg-anim{position:absolute;inset:0;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;opacity:0.07;animation:orbFloat ease-in-out infinite;}
+.orb1{width:500px;height:500px;background:var(--blue);top:-100px;right:-100px;animation-duration:14s;}
+.orb2{width:320px;height:320px;background:var(--orange);bottom:80px;right:200px;animation-duration:10s;animation-delay:-4s;}
+.orb3{width:200px;height:200px;background:var(--teal);top:40%;left:55%;animation-duration:12s;animation-delay:-7s;}
+@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-30px) scale(1.05);}}
+.particle{position:absolute;border-radius:50%;opacity:0;animation:rise linear infinite;}
+@keyframes rise{0%{transform:translateY(0) rotate(0deg);opacity:0;}5%{opacity:0.15;}95%{opacity:0.1;}100%{transform:translateY(-100vh) rotate(720deg);opacity:0;}}
+.hero-stripe{position:absolute;top:0;right:0;width:42%;height:100%;background:linear-gradient(135deg,transparent 0%,rgba(26,121,180,0.06) 100%);clip-path:polygon(18% 0%,100% 0%,100% 100%,0% 100%);}
+.hero-accent-bar{position:absolute;left:0;top:0;width:5px;height:100%;background:linear-gradient(to bottom,var(--orange),var(--magenta),var(--teal));}
+
+.hero-content{
+  position:relative;z-index:10;
+  padding:60px 8% 80px;
+  max-width:900px;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+}
+.hero-brand{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px,4vw,48px);
+  letter-spacing:3px;color:var(--white);
+  margin-bottom:10px;
+  animation:fadeUp 0.6s ease both;
+}
+.hero-brand span{color:var(--orange);}
+.hero-headline{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(54px,7.5vw,94px);
+  line-height:0.93;color:var(--white);margin-bottom:26px;
+  animation:fadeUp 0.7s 0.12s ease both;
+  text-align:center;
+}
+.hero-headline .line-blue{color:var(--teal);}
+.hero-headline .line-orange{color:var(--orange);}
+.hero-sub{
+  font-size:18px;line-height:1.75;color:rgba(255,255,255,0.72);
+  max-width:580px;margin-bottom:44px;font-weight:300;
+  animation:fadeUp 0.7s 0.24s ease both;
+  text-align:center;
+}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeUp 0.7s 0.36s ease both;}
+.hero-location{
+  margin-top:32px;
+  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;
+  letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.45);
+  animation:fadeUp 0.7s 0.5s ease both;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-location::before,.hero-location::after{content:'';width:24px;height:1px;background:rgba(255,255,255,0.25);}
+.btn-primary{
+  background:var(--orange);color:var(--navy);padding:16px 34px;border-radius:8px;
+  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;
+  letter-spacing:0.8px;text-transform:uppercase;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;
+}
+.btn-primary:hover{background:#CC7010;transform:translateY(-2px);}
+.btn-secondary{
+  background:transparent;color:var(--white);padding:16px 34px;border-radius:8px;
+  border:2px solid rgba(255,255,255,0.3);
+  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:0.8px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;
+}
+.btn-secondary:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);}
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:10px;
+  animation:fadeUp 0.7s 0.8s ease both;
+}
+.scroll-dot{width:8px;height:8px;background:var(--orange);border-radius:50%;animation:pulse 1.6s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.8);opacity:0.4;}}
+.scroll-label{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+/* TRUST BAR */
+.trust-bar{
+  background:var(--navy2);padding:26px 8%;
+  display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;
+  border-bottom:1px solid rgba(26,121,180,0.2);
+}
+.trust-stat{display:flex;align-items:center;gap:14px;}
+.trust-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--orange);line-height:1;}
+.trust-txt{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.5px;line-height:1.5;}
+.trust-div{width:1px;height:44px;background:rgba(255,255,255,0.1);}
+.maxwell-pill{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(232,128,19,0.1);border:1px solid rgba(232,128,19,0.35);
+  border-radius:8px;padding:10px 18px;
+}
+.maxwell-pill-txt{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;color:var(--orange);text-transform:uppercase;letter-spacing:1px;line-height:1.4;}
+
+/* QUOTE TICKER */
+.ticker-wrap{
+  background:var(--navy);padding:14px 0;overflow:hidden;
+  border-top:3px solid var(--orange);border-bottom:3px solid var(--blue);
+}
+.ticker-track{display:flex;animation:ticker 40s linear infinite;white-space:nowrap;width:max-content;}
+.ticker-track:hover{animation-play-state:paused;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:18px;padding:0 44px;
+  font-family:'Lato',sans-serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.75);
+}
+.ticker-gem{color:var(--teal);font-style:normal;font-size:12px;}
+.ticker-by{font-style:normal;font-size:11px;font-weight:800;color:var(--orange);font-family:'Montserrat',sans-serif;letter-spacing:0.5px;}
+
+/* SECTION BASE */
+section{padding:96px 8%;}
+.eyebrow{
+  font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;
+  letter-spacing:3.5px;text-transform:uppercase;color:var(--blue);
+  margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:12px;
+}
+.eyebrow::before{content:'';width:28px;height:3px;background:var(--blue);}
+.eyebrow::after{content:'';width:28px;height:3px;background:var(--blue);}
+.eyebrow.orange{color:var(--orange);}
+.eyebrow.orange::before{background:var(--orange);}
+.eyebrow.orange::after{background:var(--orange);}
+.eyebrow.teal{color:var(--teal);}
+.eyebrow.teal::before{background:var(--teal);}
+.eyebrow.teal::after{background:var(--teal);}
+.sec-head{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5vw,58px);
+  line-height:1.0;color:var(--navy);margin-bottom:14px;text-align:center;
+}
+.sec-head .o{color:var(--orange);}
+.sec-head .b{color:var(--blue);}
+.sec-head .t{color:var(--teal);}
+.sec-sub{font-size:17px;line-height:1.75;color:var(--textmid);max-width:680px;margin:0 auto 52px;text-align:center;}
+
+/* PILLARS */
+.pillars{background:linear-gradient(135deg,#e8f0f7 0%,#f0f5fb 100%);}
+.pillars-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  position:relative;z-index:1;
+}
+.pillar{
+  background:var(--white);border-radius:16px;padding:40px 30px;
+  border:1px solid rgba(4,28,38,0.07);position:relative;overflow:hidden;
+  opacity:0;transform:translateY(28px);
+  transition:opacity 0.6s ease,transform 0.6s ease,box-shadow 0.3s;
+}
+.pillar.vis{opacity:1;transform:translateY(0);}
+.pillar:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(4,28,38,0.1);}
+.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;}
+.pillar-blue::before{background:var(--blue);}
+.pillar-orange::before{background:var(--orange);}
+.pillar-teal::before{background:var(--teal);}
+.pillar-icon{font-size:32px;margin-bottom:20px;}
+.pillar-title{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--navy);margin-bottom:12px;letter-spacing:1px;}
+.pillar-desc{font-size:15px;line-height:1.7;color:var(--textmid);margin-bottom:22px;}
+.pillar-link{
+  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;
+  text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+  letter-spacing:0.5px;text-transform:uppercase;transition:gap 0.2s;
+}
+.pillar-blue .pillar-link{color:var(--blue);}
+.pillar-orange .pillar-link{color:var(--orange);}
+.pillar-teal .pillar-link{color:var(--teal);}
+.pillar-link:hover{gap:10px;}
+
+/* ABOUT STRIP */
+.about-strip{background:var(--navy);display:grid;grid-template-columns:1fr 1fr;min-height:540px;position:relative;z-index:1;}
+.about-img{position:relative;overflow:hidden;background:var(--navy2);}
+.about-img img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.about-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 55%,var(--navy) 100%);}
+.about-img-tag{
+  position:absolute;bottom:28px;left:28px;
+  background:var(--orange);color:var(--navy);
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;
+  letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;border-radius:6px;
+}
+.about-content{padding:72px 6%;display:flex;flex-direction:column;justify-content:center;}
+.about-head{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,52px);color:var(--white);line-height:1.0;margin-bottom:22px;}
+.about-head .o{color:var(--orange);}
+.about-body{font-size:16px;line-height:1.8;color:rgba(255,255,255,0.68);margin-bottom:18px;font-weight:300;}
+.about-body strong{color:var(--white);font-weight:700;}
+.about-quote{
+  border-left:4px solid var(--orange);padding-left:20px;
+  margin:24px 0;font-size:17px;font-style:italic;
+  color:rgba(255,255,255,0.82);line-height:1.65;
+}
+.about-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;border:2px solid var(--orange);color:var(--orange);
+  padding:14px 28px;border-radius:8px;
+  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;
+  letter-spacing:0.8px;text-transform:uppercase;text-decoration:none;
+  transition:all 0.2s;align-self:flex-start;margin-top:8px;
+}
+.about-btn:hover{background:var(--orange);color:var(--navy);}
+
+/* WHO I WORK WITH , full width, no video */
+.who-section{background:linear-gradient(135deg,#f0f5fb 0%,#e8eef4 100%);text-align:center;}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:700px;margin:0 auto;}
+.itag{
+  background:var(--white);color:var(--navy);
+  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;
+  padding:9px 18px;border-radius:24px;letter-spacing:0.3px;
+  border:1px solid rgba(4,28,38,0.08);transition:all 0.2s;cursor:default;
+  box-shadow:0 2px 8px rgba(4,28,38,0.06);
+}
+.itag:hover{background:var(--blue);color:var(--white);border-color:var(--blue);}
+
+/* TESTIMONIALS */
+.testimonials{background:linear-gradient(135deg,#e8eef4 0%,#f0f5fb 100%);text-align:center;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.tcard{
+  background:var(--white);border-radius:16px;padding:34px 28px;
+  border:1px solid rgba(4,28,38,0.06);
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.6s ease,transform 0.6s ease;
+  box-shadow:0 4px 16px rgba(4,28,38,0.06);
+}
+.tcard.vis{opacity:1;transform:translateY(0);}
+.tcard:hover{box-shadow:0 12px 40px rgba(4,28,38,0.1);}
+.tcard-top{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.tcard-stripe{width:4px;height:40px;border-radius:2px;}
+.stripe-b{background:var(--blue);}
+.stripe-o{background:var(--orange);}
+.stripe-t{background:var(--teal);}
+.tcard-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--textlt);}
+.tcard-text{font-size:15px;line-height:1.78;color:var(--textmid);font-style:italic;margin-bottom:26px;text-align:left;}
+.tcard-author{display:flex;align-items:center;gap:12px;border-top:1px solid rgba(4,28,38,0.06);padding-top:18px;}
+.tcard-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:15px;flex-shrink:0;}
+.av-b{background:var(--blue);color:var(--white);}
+.av-o{background:var(--orange);color:var(--navy);}
+.av-t{background:var(--teal);color:var(--navy);}
+.tcard-name{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:var(--navy);}
+.tcard-role{font-size:12px;color:var(--textlt);margin-top:2px;}
+
+/* CTA BAND */
+.cta-band{background:var(--navy);padding:88px 8%;text-align:center;position:relative;overflow:hidden;}
+.cta-band-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(26,121,180,0.15) 0%,transparent 65%);}
+.cta-top-bar{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(to right,var(--orange),var(--magenta),var(--blue),var(--teal));}
+.cta-eyebrow{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--teal);margin-bottom:18px;position:relative;}
+.cta-head{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,6.5vw,76px);color:var(--white);line-height:0.95;margin-bottom:20px;position:relative;}
+.cta-head .o{color:var(--orange);}
+.cta-sub{font-size:17px;color:rgba(255,255,255,0.62);max-width:520px;margin:0 auto 44px;line-height:1.75;position:relative;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;}
+
+/* FOOTER */
+footer{background:#020E14;padding:64px 8% 32px;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:52px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.foot-brand-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--white);margin-bottom:10px;}
+.foot-brand-name span{color:var(--orange);}
+.foot-desc{font-size:13px;line-height:1.75;color:rgba(255,255,255,0.35);margin-bottom:22px;}
+.foot-social{display:flex;gap:10px;}
+.soc-btn{
+  width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;
+  color:rgba(255,255,255,0.4);transition:all 0.2s;
+}
+.soc-btn:hover{background:var(--blue);color:var(--white);border-color:var(--blue);}
+.foot-col-title{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:18px;}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,0.38);text-decoration:none;margin-bottom:10px;transition:color 0.2s;}
+.foot-col a:hover{color:var(--white);}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.foot-copy{font-size:12px;color:rgba(255,255,255,0.2);}
+.foot-maxwell{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:6px;padding:7px 14px;}
+.foot-maxwell-txt{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.vis{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .pillars-grid{grid-template-columns:1fr;}
+  .testi-grid{grid-template-columns:1fr;}
+  .about-strip{grid-template-columns:1fr;}
+  .about-img{height:320px;}
+  .foot-top{grid-template-columns:1fr 1fr;}
+}
+
+
+/* SITENAV */
+.sitenav{position:fixed;top:0;left:0;right:0;z-index:999;
+  background:rgba(4,28,38,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:68px;}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;
+  color:var(--white);text-decoration:none;}
+.nav-brand span{color:var(--orange);}
+.nav-links{display:flex;align-items:center;gap:28px;}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.65);
+  text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--white);}
+.nav-cta{background:var(--orange);color:var(--navy)!important;
+  padding:9px 20px;border-radius:6px;font-weight:800!important;}
+.nav-cta:hover{background:#CC7010!important;}
+
+/* PAGE HERO */
+.page-hero{
+  min-height:48vh;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:120px 8% 80px;
+  position:relative;overflow:hidden;
+}
+.page-hero-bg{position:absolute;inset:0;
+  background:linear-gradient(135deg,#041C26 0%,#0A2F42 50%,#041C26 100%);}
+.page-hero-accent{position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(to right,var(--orange),var(--magenta),var(--blue),var(--teal));}
+.page-hero-content{position:relative;z-index:2;}
+.page-hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;
+  letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;}
+.page-hero-head{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,86px);
+  color:var(--white);line-height:0.93;margin-bottom:20px;}
+.page-hero-head .o{color:var(--orange);}
+.page-hero-sub{font-size:18px;color:rgba(255,255,255,0.65);
+  max-width:580px;margin:0 auto;line-height:1.75;}
+
+/* SERVICE SECTIONS */
+.service-block{padding:88px 8%;}
+.service-block:nth-child(odd){background:linear-gradient(135deg,#f0f4f8 0%,#e8eef4 100%);}
+.service-block:nth-child(even){background:var(--white);}
+.service-inner{max-width:860px;margin:0 auto;}
+.service-tag{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;
+  letter-spacing:3px;text-transform:uppercase;color:var(--blue);
+  display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;}
+.service-tag::before{content:'';width:24px;height:3px;background:var(--blue);}
+.service-tag.orange{color:var(--orange);}
+.service-tag.orange::before{background:var(--orange);}
+.service-tag.teal{color:var(--teal);}
+.service-tag.teal::before{background:var(--teal);}
+.service-tag.green{color:var(--green);}
+.service-tag.green::before{background:var(--green);}
+.service-tag.magenta{color:var(--magenta);}
+.service-tag.magenta::before{background:var(--magenta);}
+.service-head{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,56px);
+  color:var(--navy);line-height:0.95;margin-bottom:24px;}
+.service-head .o{color:var(--orange);}
+.service-head .b{color:var(--blue);}
+.service-body{font-size:16px;line-height:1.85;color:var(--textmid);margin-bottom:16px;}
+.service-body strong{color:var(--navy);font-weight:700;}
+.includes-head{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;
+  letter-spacing:2px;text-transform:uppercase;color:var(--navy);
+  margin:32px 0 16px;}
+.includes-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.includes-list li{display:flex;align-items:flex-start;gap:12px;
+  font-size:15px;line-height:1.65;color:var(--textmid);}
+.includes-list li::before{content:'';width:8px;height:8px;border-radius:50%;
+  background:var(--orange);flex-shrink:0;margin-top:7px;}
+.service-cta{margin-top:36px;}
+.btn-service{display:inline-flex;align-items:center;gap:8px;
+  background:var(--orange);color:var(--navy);
+  padding:15px 32px;border-radius:8px;
+  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:800;
+  letter-spacing:0.8px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.btn-service:hover{background:#CC7010;transform:translateY(-2px);}
+
+/* DIVIDER */
+.service-divider{height:1px;background:rgba(4,28,38,0.06);margin:0 8%;}
+
+/* NOT SURE BAND */
+.notsure-band{background:var(--navy);padding:88px 8%;text-align:center;position:relative;overflow:hidden;}
+.notsure-glow{position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(26,121,180,0.15) 0%,transparent 65%);}
+.notsure-bar{position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(to right,var(--orange),var(--magenta),var(--blue),var(--teal));}
+.notsure-eyebrow{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;
+  letter-spacing:4px;text-transform:uppercase;color:var(--teal);
+  margin-bottom:18px;position:relative;}
+.notsure-head{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,70px);
+  color:var(--white);line-height:0.95;margin-bottom:20px;position:relative;}
+.notsure-head .o{color:var(--orange);}
+.notsure-sub{font-size:17px;color:rgba(255,255,255,0.62);
+  max-width:540px;margin:0 auto 44px;line-height:1.75;position:relative;}
+.notsure-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;}
+.btn-notsure{background:var(--orange);color:var(--navy);padding:16px 34px;border-radius:8px;
+  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;
+  letter-spacing:0.8px;text-transform:uppercase;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+.btn-notsure:hover{background:#CC7010;transform:translateY(-2px);}
+.btn-notsure-outline{background:transparent;color:var(--white);padding:16px 34px;border-radius:8px;
+  border:2px solid rgba(255,255,255,0.3);
+  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:0.8px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.btn-notsure-outline:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:#020E14;padding:64px 8% 32px;}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;
+  margin-bottom:52px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.foot-brand-name{font-family:'Bebas Neue',sans-serif;font-size:22px;
+  letter-spacing:2px;color:var(--white);margin-bottom:10px;}
+.foot-brand-name span{color:var(--orange);}
+.foot-desc{font-size:13px;line-height:1.75;color:rgba(255,255,255,0.35);margin-bottom:22px;}
+.foot-social{display:flex;gap:10px;}
+.soc-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;
+  color:rgba(255,255,255,0.4);transition:all 0.2s;}
+.soc-btn:hover{background:var(--blue);color:var(--white);border-color:var(--blue);}
+.foot-col-title{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:18px;}
+.foot-col a{display:block;font-size:13px;color:rgba(255,255,255,0.38);
+  text-decoration:none;margin-bottom:10px;transition:color 0.2s;}
+.foot-col a:hover{color:var(--white);}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;}
+.foot-copy{font-size:12px;color:rgba(255,255,255,0.2);}
+.foot-maxwell{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.05);border-radius:6px;padding:7px 14px;}
+.foot-maxwell-txt{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:800;
+  color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:1px;}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.vis{opacity:1;transform:translateY(0);}
+
+@media(max-width:768px){
+  .foot-top{grid-template-columns:1fr 1fr;}
+  .sitenav .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <a href="index.html" class="nav-brand">Upward <span>Path</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="bbq-events.html">BBQ Events</a>
+    <a href="https://pathfinder-leadership-quiz.lovable.app" target="_blank">Free Quiz</a>
+    <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" target="_blank" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-accent"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">What We Offer</div>
+    <h1 class="page-hero-head">Learning Is Not<br>the Problem.<br><span class="o">Applying It Is.</span></h1>
+    <p class="page-hero-sub">Leadership development, group coaching, and team training rooted in Maxwell curriculum and built for blue-collar business owners who are done with theory.</p>
+  </div>
+</div>
+
+<!-- 1-ON-1 COACHING -->
+<div class="service-block">
+  <div class="service-inner reveal">
+    <div class="service-tag">Private Coaching</div>
+    <h2 class="service-head">1-on-1 <span class="o">Coaching</span></h2>
+    <p class="service-body">This is private, direct, and built around your specific situation. Not a framework that gets applied the same way to every client. Your business, your team, your gaps, and your goals.</p>
+    <p class="service-body">If you are an owner or operator who is hitting a ceiling and needs a thinking partner who has actually run a business in the trades, this is where we start. Bi-weekly sessions, unlimited email access, and real accountability between calls. Not cheerleading. Not theory. Working through what is actually in front of you.</p>
+    <div class="includes-head">What is included</div>
+    <ul class="includes-list">
+      <li>Bi-weekly 1-on-1 coaching sessions</li>
+      <li>Unlimited email Q&amp;A between sessions</li>
+      <li>Business model review and strategic advisement</li>
+      <li>SOP development and systems implementation support</li>
+      <li>Goal setting, progress tracking, and honest accountability</li>
+    </ul>
+    <div class="service-cta">
+      <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" class="btn-service" target="_blank">Book a Free Call &#8250;</a>
+    </div>
+  </div>
+</div>
+
+<div class="service-divider"></div>
+
+<!-- GROUP COACHING -->
+<div class="service-block">
+  <div class="service-inner reveal">
+    <div class="service-tag orange">Group Coaching</div>
+    <h2 class="service-head">Group <span class="o">Coaching</span></h2>
+    <p class="service-body">A small cohort of owners and operators meeting weekly inside a structured program. You get the benefit of peer learning, shared accountability, and curriculum that builds week over week, without the cost of a private engagement.</p>
+    <p class="service-body">The format is simple. Thirty minutes of focused teaching on a Maxwell Leadership principle. Thirty minutes of discussion, application, and problem-solving with the group. Then you go do the work. The current cohort is running through John Maxwell's "Everyone Communicates, Few Connect," one of the most practical leadership books ever written for people who lead teams in high-pressure environments.</p>
+    <div class="includes-head">What is included</div>
+    <ul class="includes-list">
+      <li>Weekly 60-minute group sessions</li>
+      <li>30 minutes teaching plus 30 minutes of application and discussion</li>
+      <li>Maxwell Leadership curriculum with real-world application each week</li>
+      <li>Access to the peer group community between sessions</li>
+      <li>Available virtually or in-person depending on the group</li>
+    </ul>
+    <div class="service-cta">
+      <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" class="btn-service" target="_blank">Book a Free Call &#8250;</a>
+    </div>
+  </div>
+</div>
+
+<div class="service-divider"></div>
+
+<!-- LUNCH AND LEARNS -->
+<div class="service-block">
+  <div class="service-inner reveal">
+    <div class="service-tag teal">On-Site Training</div>
+    <h2 class="service-head">Lunch <span class="b">&amp; Learns</span></h2>
+    <p class="service-body">An hour of focused leadership content brought to your location. No travel for your team, no full day off the floor, and something they can act on that same afternoon.</p>
+    <p class="service-body">Lunch and Learns are a low-barrier way to start investing in your people without committing to a full program. Topics are customized to what your team is actually dealing with right now, whether that is communication breakdowns, accountability gaps, culture problems, or how to lead people who do not respond the way a textbook says they should.</p>
+    <div class="includes-head">Details</div>
+    <ul class="includes-list">
+      <li>60 to 90 minutes, delivered on-site at your facility</li>
+      <li>Custom topic based on your current team situation</li>
+      <li>Can be paired with a team lunch for a zero-disruption development day</li>
+      <li>A strong entry point if you want to see the value before committing to a longer program</li>
+    </ul>
+    <div class="service-cta">
+      <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" class="btn-service" target="_blank">Book a Free Call &#8250;</a>
+    </div>
+  </div>
+</div>
+
+<div class="service-divider"></div>
+
+<!-- MASTERMIND -->
+<div class="service-block">
+  <div class="service-inner reveal">
+    <div class="service-tag green">Peer Leadership</div>
+    <h2 class="service-head">Mastermind <span class="o">Events</span></h2>
+    <p class="service-body">Mastermind events are where things get serious. A small group of leaders working through a shared curriculum, holding each other accountable, and doing the kind of thinking that does not happen inside the four walls of your own business.</p>
+    <p class="service-body">These are structured around Maxwell Leadership books and designed to run over an eight-week arc. Each week has a clear focus, a practical application, and an expectation that you actually go use what you learned before the next session. This is not a conversation club. It is a working group for operators who are committed to getting better.</p>
+    <div class="includes-head">What is included</div>
+    <ul class="includes-list">
+      <li>Eight-week cohort format with structured weekly sessions</li>
+      <li>Maxwell Leadership curriculum as the backbone throughout</li>
+      <li>Peer accountability built into the format, not added as an afterthought</li>
+      <li>Real-world application exercises between each session</li>
+      <li>Limited enrollment to keep the group tight and the conversation honest</li>
+    </ul>
+    <div class="service-cta">
+      <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" class="btn-service" target="_blank">Book a Free Call &#8250;</a>
+    </div>
+  </div>
+</div>
+
+<div class="service-divider"></div>
+
+<!-- DISC -->
+<div class="service-block">
+  <div class="service-inner reveal">
+    <div class="service-tag magenta">Behavioral Assessment</div>
+    <h2 class="service-head">DISC Assessment <span class="o">&amp; Debrief</span></h2>
+    <p class="service-body">Most people have heard of personality assessments. Most of those assessments sit in an email and never get used.</p>
+    <p class="service-body">The DISC debrief at Upward Path is different because we spend time actually working through what your results mean for the way you lead, communicate, and make decisions. Not just "here is your profile." But here is why your techs are responding to you the way they are, here is why that conversation with your service advisor keeps going sideways, and here is what to do differently starting now.</p>
+    <p class="service-body">The DISC is also one of the most valuable tools a leadership team can go through together. When you understand how your people are wired, you stop managing everyone the same way and start actually reaching them.</p>
+    <div class="includes-head">What is included</div>
+    <ul class="includes-list">
+      <li>Full DISC behavioral assessment for you and your team</li>
+      <li>One-on-one or team debrief session walking through what the results mean in your specific context</li>
+      <li>Practical application to communication, conflict resolution, and leadership style</li>
+      <li>A reference tool your team can use long after the debrief is done</li>
+      <li>Can be added as a standalone session or built into any coaching or mastermind program</li>
+    </ul>
+    <div class="service-cta">
+      <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" class="btn-service" target="_blank">Book a Free Call &#8250;</a>
+    </div>
+  </div>
+</div>
+
+<!-- NOT SURE BAND -->
+<div class="notsure-band">
+  <div class="notsure-glow"></div>
+  <div class="notsure-bar"></div>
+  <div class="notsure-eyebrow">Not Sure Where to Start?</div>
+  <h2 class="notsure-head">That Is Fine.<br><span class="o">Book a Call Anyway.</span></h2>
+  <p class="notsure-sub">Most people who reach out are not sure which format fits. Book a call and we will figure it out together. No pitch, no pressure. Just a real conversation about where you are and whether this is a good fit.</p>
+  <div class="notsure-btns">
+    <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" class="btn-notsure" target="_blank">Book Your Free Call &#8250;</a>
+    <a href="https://pathfinder-leadership-quiz.lovable.app" class="btn-notsure-outline" target="_blank">Take the Leadership Quiz</a>
+  </div>
+</div>
+
+
+<footer>
+  <div class="foot-top">
+    <div>
+      <div class="foot-brand-name">Upward <span>Path</span></div>
+      <p class="foot-desc">Leadership coaching and team development for owners and managers in the trades, collision repair, and service industries. Based in Conway, SC — serving businesses nationwide.</p>
+      <div class="foot-social">
+        <a href="https://www.linkedin.com/in/kevin-d-anna-a1474542/" class="soc-btn" target="_blank">in</a>
+        <a href="https://www.instagram.com/thekevindanna/" class="soc-btn" target="_blank">IG</a>
+        <a href="https://www.facebook.com/kevin.j.d.anna" class="soc-btn" target="_blank">fb</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Navigate</div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Kevin</a>
+      <a href="services.html">Services</a>
+      <a href="bbq-events.html">BBQ Events</a>
+      <a href="https://pathfinder-leadership-quiz.lovable.app" target="_blank">Free Resources</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Resources</div>
+      <a href="https://pathfinder-leadership-quiz.lovable.app" target="_blank">Leadership Quiz</a>
+      <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" target="_blank">Book a Free Call</a>
+      <a href="https://www.johncmaxwellgroup.com/KevinDAnna" target="_blank">Maxwell Profile</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Contact</div>
+      <a href="mailto:upwardpathcoaching@gmail.com">upwardpathcoaching@gmail.com</a>
+      <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" target="_blank">Book a Free Call</a>
+      <a href="#">Conway, SC 29527</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">&copy; 2026 Upward Path Coaching &amp; Consulting LLC</div>
+    <a href="https://www.johncmaxwellgroup.com/KevinDAnna" target="_blank" class="foot-maxwell" style="text-decoration:none;">
+      <div class="foot-maxwell-txt">Maxwell Leadership<br>Certified Team Member</div>
+    </a>
+  </div>
+</footer>
+
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); } });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
