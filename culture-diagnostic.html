@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culture Diagnostic | Upward Path Coaching and Consulting</title>
+<meta name="description" content="A free 20 question culture diagnostic for owners and leaders in the trades. Four minutes, on your phone, scored instantly. No opinions, just behavior.">
+<meta property="og:title" content="Culture Diagnostic | Upward Path Coaching and Consulting">
+<meta property="og:description" content="20 questions. Four minutes. Find out what your culture actually is, not what you hope it is.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#041C26;
+  --navy2:#0A2F42;
+  --blue:#1A79B4;
+  --orange:#E88013;
+  --teal:#02B1CE;
+  --magenta:#C02276;
+  --green:#3CA050;
+  --paper:#F4F6F7;
+  --line:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  color:#fff;
+  font-family:'Lato',sans-serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+
+/* SITENAV */
+.sitenav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  background:rgba(4,28,38,0.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:68px;
+}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:#FFFFFF;text-decoration:none;}
+.nav-brand span{color:var(--orange);}
+.nav-links{display:flex;align-items:center;gap:20px;}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:#FFFFFF;}
+.nav-cta{background:var(--orange);color:var(--navy)!important;padding:9px 20px;border-radius:6px;font-weight:800!important;}
+.nav-cta:hover{background:#CC7010!important;}
+@media(max-width:768px){
+  .sitenav .nav-links{display:none;}
+}
+
+/* HERO */
+.hero{
+  max-width:820px;margin:0 auto;padding:70px 22px 50px;text-align:center;
+}
+.eyebrow{
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:18px;
+}
+h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(44px,8vw,76px);
+  line-height:.98;letter-spacing:.01em;margin-bottom:22px;
+}
+h1 .accent{color:var(--orange)}
+.hero p{
+  font-size:18px;color:rgba(255,255,255,.8);
+  max-width:620px;margin:0 auto 14px;
+}
+.hero .kicker{
+  font-family:'Montserrat',sans-serif;font-weight:600;
+  font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);margin-top:26px;
+}
+
+/* PRIMARY BUTTON */
+.btn{
+  display:inline-block;background:var(--orange);color:#fff;
+  font-family:'Montserrat',sans-serif;font-weight:700;
+  font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+  padding:17px 40px;border:none;border-radius:4px;
+  cursor:pointer;text-decoration:none;transition:transform .15s,background .2s;
+}
+.btn:hover{background:#f7911f;transform:translateY(-2px)}
+.btn:disabled{background:rgba(255,255,255,.13);color:rgba(255,255,255,.35);cursor:not-allowed;transform:none}
+.btn-ghost{
+  background:transparent;border:2px solid rgba(255,255,255,.28);color:#fff;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:var(--teal)}
+
+.start-wrap{text-align:center;padding:0 22px 80px}
+
+/* INTRO NOTE */
+.note{
+  max-width:640px;margin:0 auto 44px;padding:24px 26px;
+  background:var(--navy2);border-left:3px solid var(--teal);border-radius:4px;
+  text-align:left;
+}
+.note p{font-size:16px;color:rgba(255,255,255,.8);margin:0}
+.note strong{color:#fff}
+
+/* QUIZ */
+.quiz{display:none;max-width:720px;margin:0 auto;padding:36px 22px 90px}
+.quiz.active{display:block}
+
+.progress-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:'Montserrat',sans-serif;font-weight:600;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-bottom:10px;
+}
+.progress-head .dim{color:var(--teal)}
+.bar{height:5px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;margin-bottom:40px}
+.bar span{display:block;height:100%;background:var(--orange);width:0;transition:width .35s ease;border-radius:3px}
+
+.q-num{
+  font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.14em;
+  color:var(--orange);margin-bottom:12px;
+}
+.q-text{
+  font-family:'Montserrat',sans-serif;font-weight:600;
+  font-size:clamp(20px,4.2vw,26px);line-height:1.35;margin-bottom:30px;
+}
+.opts{display:flex;flex-direction:column;gap:12px}
+.opt{
+  width:100%;text-align:left;
+  background:var(--navy2);color:#fff;
+  border:1.5px solid rgba(255,255,255,.1);border-radius:6px;
+  padding:18px 20px;font-family:'Lato',sans-serif;font-size:16.5px;line-height:1.45;
+  cursor:pointer;transition:border-color .18s,background .18s,transform .12s;
+}
+.opt:hover{border-color:var(--teal);background:#0d3950}
+.opt:active{transform:scale(.99)}
+.opt.selected{border-color:var(--orange);background:#0d3950}
+.opt:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+.q-foot{margin-top:28px;display:flex;justify-content:space-between;align-items:center}
+.back{
+  background:none;border:none;color:rgba(255,255,255,.45);
+  font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;
+  letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:8px 0;
+}
+.back:hover{color:#fff}
+.back[hidden]{visibility:hidden}
+
+/* RESULTS */
+.results{display:none;max-width:760px;margin:0 auto;padding:50px 22px 90px}
+.results.active{display:block}
+
+.score-card{
+  background:var(--navy2);border-radius:8px;padding:40px 30px;text-align:center;
+  border-top:4px solid var(--orange);margin-bottom:40px;
+}
+.score-big{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(78px,17vw,120px);line-height:.9;color:var(--orange);
+}
+.score-out{
+  font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;
+  letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);
+  margin-bottom:22px;
+}
+.band{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,5.5vw,36px);
+  letter-spacing:.02em;margin-bottom:14px;
+}
+.score-card p{color:rgba(255,255,255,.82);font-size:16.5px;max-width:520px;margin:0 auto}
+
+h2.sec{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,5vw,38px);
+  letter-spacing:.02em;margin-bottom:8px;
+}
+.sec-sub{color:rgba(255,255,255,.55);font-size:15.5px;margin-bottom:28px}
+
+.dim{margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.dim:last-of-type{border-bottom:none}
+.dim-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;gap:14px}
+.dim-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px}
+.dim-score{
+  font-family:'Bebas Neue',sans-serif;font-size:21px;letter-spacing:.05em;
+  white-space:nowrap;
+}
+.dim-bar{height:9px;background:rgba(255,255,255,.09);border-radius:5px;overflow:hidden;margin-bottom:13px}
+.dim-bar span{display:block;height:100%;width:0;border-radius:5px;transition:width .8s cubic-bezier(.2,.8,.3,1)}
+.dim p{font-size:15.5px;color:rgba(255,255,255,.76)}
+
+.weak-flag{
+  display:inline-block;background:var(--magenta);color:#fff;
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:3px;
+  margin-left:10px;vertical-align:middle;
+}
+
+/* GATE */
+.gate{
+  background:linear-gradient(160deg,var(--navy2),#0d3950);
+  border-radius:8px;padding:38px 30px;margin-top:44px;
+  border:1px solid rgba(2,177,206,.28);
+}
+.gate h3{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,5vw,34px);
+  letter-spacing:.02em;margin-bottom:12px;
+}
+.gate p{color:rgba(255,255,255,.8);font-size:16px;margin-bottom:24px}
+.gate ul{list-style:none;margin:0 0 26px}
+.gate li{
+  padding-left:26px;position:relative;margin-bottom:11px;
+  font-size:16px;color:rgba(255,255,255,.86);
+}
+.gate li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:9px;height:9px;background:var(--green);border-radius:2px;
+}
+.field{margin-bottom:15px}
+.field label{
+  display:block;font-family:'Montserrat',sans-serif;font-weight:600;
+  font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-bottom:7px;
+}
+.field input{
+  width:100%;background:rgba(0,0,0,.28);border:1.5px solid rgba(255,255,255,.16);
+  border-radius:5px;padding:14px 15px;color:#fff;font-family:'Lato',sans-serif;font-size:16px;
+}
+.field input:focus{outline:none;border-color:var(--teal)}
+.field input::placeholder{color:rgba(255,255,255,.3)}
+.gate .btn{width:100%;margin-top:8px}
+.fineprint{
+  font-size:13px;color:rgba(255,255,255,.42);text-align:center;margin-top:15px;
+}
+.gate-done{display:none;text-align:center}
+.gate-done.active{display:block}
+.gate-form.hidden{display:none}
+.check{
+  width:52px;height:52px;border-radius:50%;background:var(--green);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
+  font-size:27px;line-height:1;
+}
+
+.restart{text-align:center;margin-top:40px}
+.restart button{
+  background:none;border:none;color:rgba(255,255,255,.4);
+  font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:.06em;
+  text-decoration:underline;cursor:pointer;
+}
+.restart button:hover{color:#fff}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--line);padding:44px 22px;text-align:center;
+  color:rgba(255,255,255,.42);font-size:14px;
+}
+footer a{color:rgba(255,255,255,.6);text-decoration:none;margin:0 11px}
+footer a:hover{color:var(--teal)}
+.foot-links{margin-bottom:16px}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav class="sitenav">
+  <a href="index.html" class="nav-brand">Upward <span>Path</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="culture-diagnostic.html" class="active">Culture Diagnostic</a>
+    <a href="bbq-events.html">BBQ Events</a>
+    <a href="fatherhood.html">Fatherhood</a>
+    <a href="project-upward-path.html">Project Upward Path</a>
+    <a href="https://pathfinder-leadership-quiz.lovable.app" target="_blank">Free Quiz</a>
+    <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" target="_blank" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="hero">
+    <div class="eyebrow">Free Assessment</div>
+    <h1>What Is Your Culture <span class="accent">Actually</span> Like?</h1>
+    <p>Not the version on the wall. The version your people live in every day.</p>
+    <p>Twenty questions about what actually happens in your building. No opinion scales, no rating yourself one to ten. Every question asks you to think about a real moment and answer honestly.</p>
+    <div class="kicker">20 questions &nbsp;&middot;&nbsp; About 4 minutes &nbsp;&middot;&nbsp; Scored instantly</div>
+  </div>
+
+  <div class="start-wrap">
+    <div class="note">
+      <p><strong>Answer it the way it is, not the way you want it to be.</strong> Nobody sees this but you. The score only helps if the answers are true. Most owners land in the middle, and the lowest section is usually the one worth talking about.</p>
+    </div>
+    <button class="btn" onclick="startQuiz()">Start the Diagnostic</button>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz" id="quiz">
+  <div class="progress-head">
+    <span id="pLabel">Question 1 of 20</span>
+    <span class="dim" id="pDim">Trust and Conflict</span>
+  </div>
+  <div class="bar"><span id="pBar"></span></div>
+
+  <div class="q-num" id="qNum">01</div>
+  <div class="q-text" id="qText"></div>
+  <div class="opts" id="qOpts"></div>
+
+  <div class="q-foot">
+    <button class="back" id="backBtn" onclick="goBack()" hidden>&larr; Back</button>
+    <span></span>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="score-card">
+    <div class="score-big" id="rScore">0</div>
+    <div class="score-out">out of 60</div>
+    <div class="band" id="rBand"></div>
+    <p id="rBandText"></p>
+  </div>
+
+  <h2 class="sec">Where It Breaks Down</h2>
+  <p class="sec-sub">Your lowest section is where the leverage is, not your total.</p>
+  <div id="rDims"></div>
+
+  <div class="gate">
+    <div class="gate-form" id="gateForm">
+      <h3>Want to Know What to Do About It</h3>
+      <p>The score tells you where the problem is. It does not tell you how to fix it. Send this to yourself and I will include the part that matters.</p>
+      <ul>
+        <li>Your full results in writing, saved so you can compare later</li>
+        <li>What your weakest section actually costs a shop, in real terms</li>
+        <li>The first three moves to make, in order</li>
+        <li>An option to walk through your results with me on a call, no cost</li>
+      </ul>
+      <form id="leadForm" action="https://formspree.io/f/xgogyryg" method="POST">
+        <div class="field">
+          <label for="fname">Name</label>
+          <input type="text" id="fname" name="name" placeholder="First and last" required>
+        </div>
+        <div class="field">
+          <label for="femail">Email</label>
+          <input type="email" id="femail" name="email" placeholder="you@yourcompany.com" required>
+        </div>
+        <div class="field">
+          <label for="fcompany">Company</label>
+          <input type="text" id="fcompany" name="company" placeholder="Your business name">
+        </div>
+        <input type="hidden" name="total_score" id="hScore">
+        <input type="hidden" name="dimension_scores" id="hDims">
+        <input type="hidden" name="weakest_dimension" id="hWeak">
+        <input type="hidden" name="all_answers" id="hAnswers">
+        <input type="hidden" name="_subject" value="New Culture Diagnostic Completed">
+        <button type="submit" class="btn">Send Me My Results</button>
+      </form>
+      <div class="fineprint">Your results, and nothing else. Unsubscribe anytime.</div>
+    </div>
+
+    <div class="gate-done" id="gateDone">
+      <div class="check">&#10003;</div>
+      <h3>On Its Way</h3>
+      <p>Check your inbox in the next few minutes. If you would rather just talk it through, the calendar is open.</p>
+      <a href="https://calendar.app.google/XE8Nc4KZUfARCg5e9" class="btn btn-ghost" target="_blank" rel="noopener">Book a Free Debrief</a>
+    </div>
+  </div>
+
+  <div class="restart"><button onclick="restart()">Take it again</button></div>
+</section>
+
+<footer>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="mailto:upwardpathcoaching@gmail.com">Contact</a>
+  </div>
+  <div>Upward Path Coaching and Consulting LLC &nbsp;&middot;&nbsp; Conway, SC</div>
+  <div style="margin-top:8px">Leadership development for the trades and blue collar industries</div>
+</footer>
+
+<script>
+const DIMENSIONS = [
+  {name:"Trust and Conflict", color:"#02B1CE"},
+  {name:"Commitment and Accountability", color:"#E88013"},
+  {name:"Clarity and Purpose", color:"#1A79B4"},
+  {name:"Ownership and Initiative", color:"#3CA050"},
+  {name:"Fit and Contribution", color:"#C02276"}
+];
+
+const QUESTIONS = [
+  {d:0,q:"In your last leadership team meeting, how many people admitted a mistake, a gap in their knowledge, or something they needed help with?",
+   a:["Two or more, unprompted","One person","Nobody, but it was a light agenda","Nobody. That doesn't really happen here"]},
+  {d:0,q:"When two of your leaders disagree about something that matters, where does that disagreement get worked out?",
+   a:["Openly in the room, in front of the team","In the room, but only after I ask directly","Privately with me, one at a time","It doesn't get worked out. They avoid each other"]},
+  {d:0,q:"Think of the last real decision your team made. How many people in that room voiced a concern or an objection before it was finalized?",
+   a:["Most of them","Two or three","One","None. Everyone nodded"]},
+  {d:0,q:"When was the last time someone on your team told you that you were wrong about something?",
+   a:["Within the last month","Within the last few months","Over six months ago","I can't recall it happening"]},
+
+  {d:1,q:"Think of the last decision you made that some of your leaders disagreed with. How did they behave once it was made?",
+   a:["Executed it fully, including the ones who disagreed","Executed it, but visibly unenthused","Complied slowly and had to be pushed","Quietly ignored it, or reversed it in their own department"]},
+  {d:1,q:"Your lowest performing employee has been underperforming for how long?",
+   a:["Under 30 days, and there's an active plan","One to three months","Three months to a year","Over a year, or we don't track it that way"]},
+  {d:1,q:"When a peer misses a commitment, what usually happens?",
+   a:["A peer addresses it with them directly","Someone brings it to me and I address it","It gets absorbed. Someone else covers the work","Nothing. It goes unmentioned"]},
+  {d:1,q:"In the last 90 days, who has held you accountable for a commitment you missed?",
+   a:["A direct report or peer, by name","My spouse, business partner, or a coach","Nobody, but I caught it myself","Nobody"]},
+  {d:1,q:"Your best performer and your worst performer: how differently are they treated in terms of consequences, opportunity, and attention?",
+   a:["Very differently, and everyone knows the difference is earned","Somewhat differently","Barely. Both mostly get left alone","The worst performer actually gets more of my time"]},
+
+  {d:2,q:"If I pulled five employees aside separately and asked why this company exists beyond making money, how similar would the answers be?",
+   a:["Nearly identical, in their own words","Similar themes","All over the map","Most would say to make money, or wouldn't have an answer"]},
+  {d:2,q:"A new hire's first week tells them what you actually value, based only on what they see and hear. What would they learn?",
+   a:["Exactly what I'd tell them in the interview","Mostly the same, with a few gaps","Something noticeably different","I'd rather not know"]},
+  {d:2,q:"How do people find out about a significant company decision?",
+   a:["I tell them directly, with the reasoning, before it takes effect","I announce it when it takes effect","Managers pass it down","They find out when it affects them"]},
+  {d:2,q:"When you hired your last three people, what did you screen for?",
+   a:["Character and cultural fit first, skill second","Roughly equal weight","Skill first, hoped the fit would follow","Whoever was available and could do the work"]},
+  {d:2,q:"In the last six months, has anyone turned down or pushed back on an opportunity to make money because it conflicted with how you do things here?",
+   a:["Yes, and it was celebrated","Yes, but it was awkward","No, but I think they would","No, and I'm not sure they would"]},
+
+  {d:3,q:"Something goes wrong on a Tuesday. What's the first question anyone asks?",
+   a:["What broke in the process","What do we do for the customer right now","Who did it","Nothing gets asked. It gets buried"]},
+  {d:3,q:"Look at last week's calendar. How much of it was work only you could do?",
+   a:["Most of it","About half","A little. The rest could have been handed off","Almost none. I spent the week doing other people's jobs"]},
+  {d:3,q:"When someone brings you a problem, what do you do?",
+   a:["Ask what they'd do, and let them run with it","Ask what they'd do, then usually tell them","Solve it. It's faster","Solve it, and it's usually a problem I've solved before"]},
+  {d:3,q:"In the last 90 days, how many process or workflow improvements were proposed by someone who doesn't report directly to you?",
+   a:["Several","One or two","I'd have to think hard","None"]},
+
+  {d:4,q:"How much of your key people's time is spent on work that drains them?",
+   a:["Very little. I know what energizes each of them","Some, and we've talked about it","A lot, and it's just how the roles are built","I don't know what drains them"]},
+  {d:4,q:"Where does your team consistently stall out?",
+   a:["We don't stall. Ideas become finished work","Good ideas never get off the ground","We start plenty and finish little","We produce, but nobody's asking whether it's the right work"]}
+];
+
+const BANDS = [
+  {min:48, name:"Built to Hold", color:"#3CA050",
+   text:"This is rare. Your culture is doing real work for you: people tell each other the truth, standards hold without you in the room, and the business does not depend on you being everywhere. The risk at this level is drift. Cultures like this erode quietly, usually through one hire or one tolerated exception. Protect it on purpose."},
+  {min:36, name:"Solid With Cracks", color:"#1A79B4",
+   text:"The foundation is there and people are mostly rowing the same direction. But there are one or two places where the truth is not getting said out loud, and those spots quietly cost you money and good people. This is the most fixable position on the scale. The gap between here and the top is a handful of specific behaviors, not a rebuild."},
+  {min:24, name:"Running on the Owner", color:"#E88013",
+   text:"The business works because you work. Decisions route through you, standards hold when you are watching, and your leadership team is a group of people who each report to you rather than a team that runs itself. Nothing here is broken beyond repair, but you are the ceiling right now. Every bit of growth costs you more hours, and that math stops working eventually."},
+  {min:0, name:"Culture by Accident", color:"#C02276",
+   text:"Right now the culture is whatever the loudest or longest tenured people decided it would be, and it is running without a driver. That is not an indictment of you. Most owners in the trades were never taught this, because nobody teaches it. The good news is that a culture built by accident can be rebuilt on purpose, and the first changes are smaller than you think."}
+];
+
+const DIM_FEEDBACK = {
+  0:{ // Trust and Conflict
+    hi:"People tell the truth in the room. That is the hardest thing on this whole assessment to build and you have it. Everything else gets easier from here.",
+    mid:"There is trust here, but the hard conversations are still happening in your office one at a time instead of in the room with everyone. That means you are the switchboard for every disagreement, and you are carrying information your team should be handling directly.",
+    lo:"Nobody is saying the hard thing out loud. When a team never disagrees in front of each other, it is not because everyone agrees. It is because the cost of speaking up is higher than the cost of staying quiet, and the real conversations are happening in the parking lot instead."
+  },
+  1:{ // Commitment and Accountability
+    hi:"Standards hold without you enforcing them, and people follow through on decisions even when they argued against them. That is a team, not a group of employees.",
+    mid:"Accountability is running through you. Things do get addressed, but only after they reach your desk, which means every standard in the building is only as strong as your attention that week.",
+    lo:"This is where you are bleeding. Underperformance is being absorbed instead of addressed, and decisions get quietly ignored once the meeting ends. Your best people notice this long before you do, and it is the number one reason good employees leave shops that seem fine from the outside."
+  },
+  2:{ // Clarity and Purpose
+    hi:"Your people know why this place exists and they could say it in their own words. That is what makes hiring, firing, and hard calls simple instead of agonizing.",
+    mid:"You know what you stand for. Your people are getting a diluted version of it, mostly picked up secondhand. Clarity does not survive being passed down the chain, it has to be said directly and repeated more than feels necessary.",
+    lo:"There is no shared answer to why this company exists, so everyone made up their own. When purpose is unclear, people default to self interest, and you cannot blame them for it. This is also the section that determines whether your hires stick."
+  },
+  3:{ // Ownership and Initiative
+    hi:"Problems get solved at the level they happen and improvements come from people who do not report to you. Your business is not dependent on your presence.",
+    mid:"You are still the bottleneck on more than you should be. A good chunk of last week was work someone else could have owned, and every problem that lands on your desk is a decision someone was not empowered to make.",
+    lo:"Everything runs through you, and when something goes wrong the first instinct in the building is to find out who to blame. Those two things are connected. People do not take ownership in a place where being wrong is dangerous, so they hand every decision up the chain and you end up doing three jobs."
+  },
+  4:{ // Fit and Contribution
+    hi:"People are in roles that fit what they are naturally good at, and work actually gets finished. Most shops never get here.",
+    mid:"Some of your key people are spending real time on work that drains them, and it is showing up as slow follow through rather than obvious failure. This is usually the cheapest thing on this list to fix, because it is often a swap rather than a hire.",
+    lo:"You have good people in the wrong seats, and the work is stalling in a predictable spot because of it. Burnout in a shop is usually not about hours. It is about spending forty hours a week doing the part of the job that empties you out."
+  }
+};
+
+let current = 0;
+const answers = new Array(QUESTIONS.length).fill(null);
+
+function startQuiz(){
+  document.getElementById('intro').style.display='none';
+  document.getElementById('quiz').classList.add('active');
+  render();
+  window.scrollTo(0,0);
+}
+
+function render(){
+  const q = QUESTIONS[current];
+  document.getElementById('pLabel').textContent = 'Question ' + (current+1) + ' of ' + QUESTIONS.length;
+  document.getElementById('pDim').textContent = DIMENSIONS[q.d].name;
+  document.getElementById('pBar').style.width = ((current)/QUESTIONS.length*100) + '%';
+  document.getElementById('qNum').textContent = String(current+1).padStart(2,'0');
+  document.getElementById('qText').textContent = q.q;
+
+  const wrap = document.getElementById('qOpts');
+  wrap.innerHTML = '';
+  q.a.forEach((text,i) => {
+    const b = document.createElement('button');
+    b.className = 'opt' + (answers[current]===i ? ' selected' : '');
+    b.textContent = text;
+    b.onclick = () => choose(i);
+    wrap.appendChild(b);
+  });
+
+  document.getElementById('backBtn').hidden = (current === 0);
+}
+
+function choose(i){
+  answers[current] = i;
+  const btns = document.querySelectorAll('#qOpts .opt');
+  btns.forEach((b,idx)=>b.classList.toggle('selected', idx===i));
+  setTimeout(() => {
+    if(current < QUESTIONS.length - 1){
+      current++;
+      render();
+      window.scrollTo({top:0,behavior:'smooth'});
+    } else {
+      showResults();
+    }
+  }, 220);
+}
+
+function goBack(){
+  if(current > 0){ current--; render(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+
+function showResults(){
+  document.getElementById('quiz').classList.remove('active');
+  document.getElementById('results').classList.add('active');
+  window.scrollTo(0,0);
+
+  const dimScores = [0,0,0,0,0];
+  answers.forEach((a,i) => {
+    const pts = 3 - a; // option 0 = 3 pts, option 3 = 0 pts
+    dimScores[QUESTIONS[i].d] += pts;
+  });
+  const total = dimScores.reduce((x,y)=>x+y,0);
+
+  document.getElementById('rScore').textContent = total;
+  const band = BANDS.find(b => total >= b.min);
+  const bandEl = document.getElementById('rBand');
+  bandEl.textContent = band.name;
+  bandEl.style.color = band.color;
+  document.querySelector('.score-card').style.borderTopColor = band.color;
+  document.getElementById('rBandText').textContent = band.text;
+
+  // dimension max varies: 4 dims of 4 questions, one of 5
+  const counts = [0,0,0,0,0];
+  QUESTIONS.forEach(q => counts[q.d]++);
+  const maxes = counts.map(c => c*3);
+
+  const pcts = dimScores.map((s,i) => s / maxes[i]);
+  const lowest = pcts.indexOf(Math.min(...pcts));
+
+  const holder = document.getElementById('rDims');
+  holder.innerHTML = '';
+  dimScores.forEach((s,i) => {
+    const pct = pcts[i];
+    const fb = pct >= 0.75 ? DIM_FEEDBACK[i].hi : (pct >= 0.45 ? DIM_FEEDBACK[i].mid : DIM_FEEDBACK[i].lo);
+    const flag = (i === lowest) ? '<span class="weak-flag">Start Here</span>' : '';
+    const div = document.createElement('div');
+    div.className = 'dim';
+    div.innerHTML =
+      '<div class="dim-head"><div class="dim-name">' + DIMENSIONS[i].name + flag + '</div>' +
+      '<div class="dim-score" style="color:' + DIMENSIONS[i].color + '">' + s + ' / ' + maxes[i] + '</div></div>' +
+      '<div class="dim-bar"><span data-w="' + (pct*100) + '" style="background:' + DIMENSIONS[i].color + '"></span></div>' +
+      '<p>' + fb + '</p>';
+    holder.appendChild(div);
+  });
+
+  setTimeout(() => {
+    document.querySelectorAll('.dim-bar span').forEach(el => { el.style.width = el.dataset.w + '%'; });
+  }, 100);
+
+  // hidden fields for the lead form
+  document.getElementById('hScore').value = total + ' / 60 (' + band.name + ')';
+  document.getElementById('hDims').value = dimScores.map((s,i) => DIMENSIONS[i].name + ': ' + s + '/' + maxes[i]).join(' | ');
+  document.getElementById('hWeak').value = DIMENSIONS[lowest].name;
+  document.getElementById('hAnswers').value = answers.map((a,i) => (i+1) + '. ' + QUESTIONS[i].q + ' >>> ' + QUESTIONS[i].a[a]).join('\n');
+}
+
+document.getElementById('leadForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const form = e.target;
+  fetch(form.action, {
+    method:'POST',
+    body:new FormData(form),
+    headers:{'Accept':'application/json'}
+  }).then(() => {
+    document.getElementById('gateForm').classList.add('hidden');
+    document.getElementById('gateDone').classList.add('active');
+  }).catch(() => {
+    document.getElementById('gateForm').classList.add('hidden');
+    document.getElementById('gateDone').classList.add('active');
+  });
+});
+
+function restart(){
+  current = 0;
+  answers.fill(null);
+  document.getElementById('results').classList.remove('active');
+  document.getElementById('gateForm').classList.remove('hidden');
+  document.getElementById('gateDone').classList.remove('active');
+  document.getElementById('intro').style.display='block';
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
